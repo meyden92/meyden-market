@@ -1,0 +1,1 @@
+A 45-second vertical explainer reel for developers about confgen, a CLI that writes a typed config file from your .env in one command.

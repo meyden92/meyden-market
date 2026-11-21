@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "usage-band",
+  "displayName": "Usage Band",
+  "version": "0.3.0",
+  "description": "Shows plan rate limits (5h, 7d), context fill, model and session age in a band above the prompt, plus a /usage-demo pane that tries out what mods can do",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/meyden92/meyden-market/blob/main/plugins/usage-band/README.md",
+  "repository": "https://github.com/meyden92/meyden-market",
+  "license": "UNLICENSED",
+  "keywords": [
+    "usage",
+    "rate-limit",
+    "cost",
+    "mod"
+  ],
+  "types": "./types/index.d.ts"
+}

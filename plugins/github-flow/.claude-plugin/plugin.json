@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "github-flow",
+  "displayName": "GitHub Flow",
+  "version": "0.1.0",
+  "description": "GitHub issue, PR and CI workflow enforcement via gh: issue lifecycle labels, PR conventions, CI triage, and a guard hook against auto-closing PR text",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/meyden92/meyden-market/blob/main/plugins/github-flow/README.md",
+  "repository": "https://github.com/meyden92/meyden-market",
+  "license": "UNLICENSED",
+  "keywords": [
+    "github",
+    "gh",
+    "issues",
+    "pull-requests",
+    "ci"
+  ]
+}

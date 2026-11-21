@@ -1,0 +1,32 @@
+{
+  "description": "video-engineer guard rails: no render with unmeasured audio, resync reminder after SCRIPT.md edits",
+  "modules": [
+    "./register.mjs"
+  ],
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/guard-render.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"${CLAUDE_PLUGIN_ROOT}/hooks/script-edited.mjs\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

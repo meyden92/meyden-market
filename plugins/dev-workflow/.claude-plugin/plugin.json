@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "dev-workflow",
+  "description": "Engineering workflow skills for senior engineers: an onboarding preflight, structured planning interviews, specs, tracer-bullet tickets, TDD implementation, and code review, wired to GitHub",
+  "version": "0.14.0",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "keywords": [
+    "dev-workflow",
+    "onboarding",
+    "preflight",
+    "planning",
+    "spec",
+    "tickets",
+    "tdd",
+    "code-review",
+    "domain-modeling",
+    "github"
+  ],
+  "dependencies": [
+    "github-flow"
+  ],
+  "types": "./types/index.d.ts"
+}

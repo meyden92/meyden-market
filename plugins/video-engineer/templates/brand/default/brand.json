@@ -1,0 +1,37 @@
+{
+  "name": "Default",
+  "description": "Dark slate with a sky-blue accent",
+  "version": "1.0.0",
+
+  "colors": {
+    "primary": "#38BDF8",
+    "primaryLight": "#7DD3FC",
+    "textDark": "#0F172A",
+    "textMedium": "#334155",
+    "textLight": "#F8FAFC",
+    "bgLight": "#F8FAFC",
+    "bgDark": "#0F172A",
+    "divider": "#CBD5E1"
+  },
+
+  "fonts": {
+    "primary": "Inter, system-ui, sans-serif",
+    "mono": "JetBrains Mono, ui-monospace, monospace"
+  },
+
+  "spacing": { "xs": 8, "sm": 16, "md": 24, "lg": 48, "xl": 80, "xxl": 120 },
+
+  "borderRadius": { "sm": 7, "md": 12, "lg": 16 },
+
+  "typography": {
+    "h1": { "size": 88, "weight": 700 },
+    "h2": { "size": 72, "weight": 700 },
+    "h3": { "size": 48, "weight": 700 },
+    "body": { "size": 44, "weight": 400 },
+    "label": { "size": 36, "weight": 500, "letterSpacing": 3 }
+  },
+
+  "mode": "dark",
+  "styleSheet": "Flat vector, 4px outlines, palette #0F172A #38BDF8 #F8FAFC, no text, transparent background, 2048px",
+  "assets": { "logo": "brand/logo.png" }
+}

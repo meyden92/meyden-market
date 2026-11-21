@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}\"/hooks/pr_guard.py",
+            "timeout": 10,
+            "suppressOutput": true
+          }
+        ]
+      }
+    ]
+  }
+}

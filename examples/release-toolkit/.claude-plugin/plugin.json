@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "release-toolkit",
+  "displayName": "Release Toolkit",
+  "version": "0.1.0",
+  "description": "Release readiness checks, changelog authoring, and generated release notes from conventional commits",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/meyden92/meyden-market/blob/main/examples/release-toolkit/README.md",
+  "repository": "https://github.com/meyden92/meyden-market",
+  "license": "UNLICENSED",
+  "keywords": ["release", "changelog", "semver", "conventional-commits"]
+}

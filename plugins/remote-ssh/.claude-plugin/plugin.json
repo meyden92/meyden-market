@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "remote-ssh",
+  "displayName": "Remote SSH",
+  "version": "0.1.0",
+  "description": "Remote work over SSH with a host pinned per Claude session: bounded logs, service restarts, deploys, and a guard hook against hanging or misdirected remote commands",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/meyden92/meyden-market/blob/main/plugins/remote-ssh/README.md",
+  "repository": "https://github.com/meyden92/meyden-market",
+  "license": "UNLICENSED",
+  "keywords": [
+    "ssh",
+    "remote",
+    "deploy",
+    "logs"
+  ]
+}

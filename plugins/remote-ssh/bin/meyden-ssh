@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# meyden-ssh: remote work on one machine, pinned per Claude session.
+# On PATH while the plugin is enabled.
+#
+#   meyden-ssh <verb> [args...]
+#
+# A bin/ executable is given none of the plugin path variables -- not
+# CLAUDE_PLUGIN_ROOT, not CLAUDE_PLUGIN_DATA, not CLAUDE_PROJECT_DIR (verified).
+# It therefore locates its own siblings from $0, which does arrive as a full
+# path, and never from the environment.
+set -uo pipefail
+
+ROOT=$(cd "$(dirname "$0")/.." && pwd -P)
+dir="$ROOT/scripts/ssh"
+
+usage() {
+  printf 'meyden-ssh <verb> [args...]\n\n  verbs: '
+  # Only real verb files: a directory such as __pycache__ is not one, and
+  # listing it invites the model to try running it.
+  find "$dir" -maxdepth 1 -type f \( -name '*.sh' -o -name '*.py' \) -exec basename {} \; 2>/dev/null \
+    | sed 's/\.[a-z]*$//' | sort -u | tr '\n' ' '
+  printf '\n\nRun `meyden-ssh <verb> --help` for one verb.\n'
+}
+
+verb=${1:-}
+case "$verb" in
+  ""|-h|--help|help) usage; exit 0 ;;
+esac
+shift
+
+for candidate in "$dir/$verb.sh" "$dir/$verb.py"; do
+  if [ -f "$candidate" ]; then
+    case "$candidate" in
+      *.sh) exec bash "$candidate" "$@" ;;
+      *.py) exec python3 "$candidate" "$@" ;;
+    esac
+  fi
+done
+
+printf '❌ unknown verb: meyden-ssh %s\n' "$verb" >&2
+usage >&2
+exit 2

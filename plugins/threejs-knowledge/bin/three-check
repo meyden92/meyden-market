@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+"""Find outdated three.js API in source files.
+
+  three-check [path ...]   scan files or directories (default: the current directory)
+  three-check --hook       PostToolUse hook: scan the text Claude just wrote
+
+Rules are gated by the three release the project has installed. Exit 1 when the scan finds something.
+"""
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "scripts"))
+import threelib  # noqa: E402
+
+
+def project_release(path, text=""):
+    start = path if os.path.isdir(path) else os.path.dirname(path) or "."
+    return threelib.release_of(threelib.installed(start, "three")) or threelib.html_release(text)
+
+
+def hook():
+    try:
+        payload = json.load(sys.stdin)
+    except ValueError:
+        return 0
+    tool_input = payload.get("tool_input") or {}
+    path = tool_input.get("file_path") or ""
+    if not path.endswith(threelib.SOURCE_EXT):
+        return 0
+    written = [tool_input.get("content"), tool_input.get("new_string")]
+    written += [edit.get("new_string") for edit in tool_input.get("edits") or []]
+    text = "\n".join(part for part in written if part)
+    if not text:
+        return 0
+    whole = threelib.read_text(path)
+    if not threelib.THREE_HINT.search(whole) and not threelib.THREE_HINT.search(text):
+        return 0
+    release = project_release(path, whole)
+    seen, lines = set(), []
+    for _, rule in threelib.scan(text, threelib.load_rules(), release):
+        if rule["id"] not in seen:
+            seen.add(rule["id"])
+            lines.append("- " + rule["fix"])
+    if not lines:
+        return 0
+    target = "r%d" % release if release else "the current release"
+    message = "three-check: the text just written to %s uses API that is outdated for three %s. Fix it now:\n%s" % (
+        os.path.basename(path), target, "\n".join(lines))
+    json.dump({"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": message}}, sys.stdout)
+    return 0
+
+
+def main(argv):
+    if argv and argv[0] in ("-h", "--help"):
+        print(__doc__.strip())
+        return 0
+    if argv and argv[0] == "--hook":
+        return hook()
+    rules = threelib.load_rules()
+    total = 0
+    for target in argv or ["."]:
+        if not os.path.exists(target):
+            print("three-check: no such path: %s" % target, file=sys.stderr)
+            return 2
+        files = threelib.source_files(target) if os.path.isdir(target) else [target]
+        for path in files:
+            text = threelib.read_text(path)
+            if not threelib.THREE_HINT.search(text):
+                continue
+            for number, rule in threelib.scan(text, rules, project_release(path, text)):
+                total += 1
+                print("%s:%d: [%s] %s" % (os.path.relpath(path), number, rule["id"], rule["fix"]))
+    print("three-check: %d finding%s" % (total, "" if total == 1 else "s"))
+    return 1 if total else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

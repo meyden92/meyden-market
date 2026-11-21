@@ -1,0 +1,13 @@
+{
+  "meta": {
+    "title": "Critic fixture", "lang": "en-US", "width": 1920, "height": 1080, "fps": 30, "targetSec": [20, 25],
+    "style": { "sheet": "Flat vector, palette #0F172A #38BDF8 #F8FAFC, no glow", "palette": ["#0F172A", "#38BDF8", "#F8FAFC"], "font": "Helvetica", "minTextPx": 36 }
+  },
+  "scenes": [
+    { "id": "s01", "section": "intro", "onScreen": "Fixture", "visualType": "title", "audio": { "durationSec": 4.6 }, "qa": { "score": null, "issues": [] } },
+    { "id": "s02", "section": "body", "onScreen": "Faster builds", "visualType": "title", "audio": { "durationSec": 4.6 }, "qa": { "score": null, "issues": [] } },
+    { "id": "s03", "section": "body", "onScreen": "Plan / Build", "visualType": "comparison", "audio": { "durationSec": 4.6 }, "qa": { "score": null, "issues": [] } },
+    { "id": "s04", "section": "body", "onScreen": "", "visualType": "title", "audio": { "durationSec": 2.7 }, "qa": { "score": null, "issues": [] } },
+    { "id": "s05", "section": "outro", "onScreen": "Done", "visualType": "cta", "audio": { "durationSec": 4.6 }, "qa": { "score": null, "issues": [] } }
+  ]
+}

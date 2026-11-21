@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "vinted-seller",
+  "description": "Turns item photos into German Vinted listings, prices them against comparable listings on vinted.de, and fills the upload form in the browser for you to publish",
+  "version": "0.1.0",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "keywords": [
+    "vinted",
+    "second-hand",
+    "listing",
+    "resale",
+    "pricing"
+  ]
+}

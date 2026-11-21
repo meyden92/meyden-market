@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "video-engineer",
+  "description": "Turns screenshots and a sentence of direction into a finished Remotion video (interview, brief, script, images through the fal MCP, voice, music and sound effects through the fal or ElevenLabs MCP, build, critic-gated QA, incremental render, platform cuts), shows a running app in showcase and tutorial videos, and turns a song plus its lyrics into a lyric music video",
+  "version": "0.8.0",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "keywords": [
+    "remotion",
+    "video",
+    "tts",
+    "voiceover",
+    "motion-graphics",
+    "captions",
+    "music-video",
+    "lyrics"
+  ],
+  "userConfig": {
+    "sfx_library": {
+      "type": "directory",
+      "title": "Sound library folder (optional)",
+      "description": "Folder where new generic sound effects are saved for reuse, normally <your marketplace checkout>/plugins/video-engineer/sfx so they can be committed and shipped. Empty: they are saved in the plugin's data folder on this machine.",
+      "required": false
+    }
+  }
+}

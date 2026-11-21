@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "threejs-knowledge",
+  "description": "Current three.js knowledge (r186, WebGL and WebGPU with TSL, React Three Fiber, physics, XR, audio, world and asset generation), five specialist agents, a hook that flags outdated three.js API, live frame stats and a visual check loop, so Claude builds, debugs and optimizes 3D scenes without being told which skill to use",
+  "version": "0.1.0",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "keywords": [
+    "threejs",
+    "three.js",
+    "webgl",
+    "webgpu",
+    "tsl",
+    "react-three-fiber",
+    "3d",
+    "shaders",
+    "rapier",
+    "webxr",
+    "mod"
+  ],
+  "displayName": "three.js Knowledge",
+  "license": "UNLICENSED",
+  "types": "./types/index.d.ts",
+  "engines": {
+    "claude-code": ">=2.1.323"
+  }
+}

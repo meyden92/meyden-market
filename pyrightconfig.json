@@ -1,0 +1,19 @@
+{
+  "include": [
+    ".claude",
+    "plugins"
+  ],
+  "exclude": [
+    "**/__pycache__",
+    "**/evals/**",
+    "reference"
+  ],
+  "extraPaths": [
+    "plugins/remote-ssh/scripts/lib",
+    "plugins/github-flow/scripts/lib",
+    "plugins/github-flow/scripts/github"
+  ],
+  "pythonVersion": "3.11",
+  "typeCheckingMode": "standard",
+  "reportMissingModuleSource": "none"
+}

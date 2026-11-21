@@ -1,0 +1,31 @@
+{
+  "description": "threejs-knowledge: tells Claude the project's three.js stack at session start and flags outdated three.js API in text it just wrote",
+  "modules": [
+    "./register.tsx"
+  ],
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}\"/scripts/session-context.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}\"/bin/three-check --hook",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

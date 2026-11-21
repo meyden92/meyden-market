@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "agent-toolkit",
+  "displayName": "Agent Toolkit",
+  "version": "0.8.0",
+  "description": "Writing and testing Claude Code Extensions such as Skills, Plugins, Agents and Mods.",
+  "author": {
+    "name": "meyden92",
+    "email": "5308174+meyden92@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/meyden92/meyden-market/blob/main/plugins/agent-toolkit/README.md",
+  "repository": "https://github.com/meyden92/meyden-market",
+  "license": "UNLICENSED",
+  "keywords": [
+    "claude code",
+    "ai",
+    "mods"
+  ]
+}

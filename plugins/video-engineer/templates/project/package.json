@@ -1,0 +1,30 @@
+{
+  "name": "video-project",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.2",
+    "@remotion/captions": "4.0.537",
+    "@remotion/cli": "4.0.537",
+    "@remotion/effects": "4.0.537",
+    "@remotion/google-fonts": "4.0.537",
+    "@remotion/media-utils": "4.0.537",
+    "@remotion/motion-blur": "4.0.537",
+    "@remotion/three": "4.0.537",
+    "@remotion/transitions": "4.0.537",
+    "@types/three": "^0.178.0",
+    "postprocessing": "^6.39.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.537",
+    "three": "^0.178.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "playwright": "^1.64.1",
+    "typescript": "^5.6.0"
+  }
+}

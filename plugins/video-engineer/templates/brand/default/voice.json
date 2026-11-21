@@ -1,0 +1,11 @@
+{
+  "provider": "fal",
+  "model": "google/gemini-3.8-flash-tts",
+  "voice": "",
+  "description": "TTS voice for this brand (see the video-engineer audio skill for providers); voice empty until chosen",
+  "style": "",
+  "settings": {},
+  "lang": "en-US",
+  "tone": "calm, direct, no hype",
+  "music": "quiet ambient pad"
+}

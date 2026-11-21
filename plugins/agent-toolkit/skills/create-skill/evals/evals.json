@@ -1,0 +1,57 @@
+{
+  "skill_name": "create-skill",
+  "evals": [
+    {
+      "id": 1,
+      "name": "create-forking-research-skill",
+      "prompt": "we've got a big monorepo and every time i ask you to figure out how some subsystem works, the search results eat my whole context. i want a skill that goes off and researches a topic on its own and comes back with a write-up",
+      "expected_output": "A skill using context: fork with an appropriate agent, whose body reads as an executable task rather than guidelines.",
+      "files": [],
+      "assertions": [
+        "A SKILL.md was created on disk with YAML frontmatter that parses",
+        "The frontmatter sets `context: fork`, since the whole point is keeping search output out of the main conversation",
+        "The frontmatter sets `agent:` to a real agent type - one of `Explore`, `Plan`, `general-purpose`, or a custom agent whose definition is also created in this run",
+        "If `agent: Explore` was chosen, the skill or response accounts for Explore being read-only and skipping CLAUDE.md; if a different agent was chosen, the response says why read-only exploration was insufficient",
+        "The body is written as an executable task the subagent can perform (imperative steps with a stated deliverable), not as guidelines or background knowledge with no action",
+        "The body names what the subagent should return and in what shape, since only its final summary reaches the main conversation",
+        "Every frontmatter key is one of: name, description, when_to_use, argument-hint, arguments, context, agent, background, allowed-tools, disable-model-invocation, user-invocable, model, effort, paths, hooks, shell, disallowed-tools",
+        "No frontmatter key is present that the response never justifies - in particular `model`, `effort`, `paths`, or `hooks` appear only with a stated reason"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "create-user-invoked-skill-with-script",
+      "prompt": "make me a skill for cutting a release - it needs to bump the version in package.json, regenerate the changelog from the commits since the last tag, and tag it. i don't want you firing that off on your own, only when i ask for it. the version bump logic is fiddly so it should be a real script rather than instructions you follow each time",
+      "expected_output": "A user-invoked skill with a bundled, executable script referenced via ${CLAUDE_SKILL_DIR} and a matching allowed-tools rule.",
+      "files": [],
+      "assertions": [
+        "A SKILL.md was created on disk with YAML frontmatter that parses",
+        "`disable-model-invocation: true` is set, because the user explicitly asked that it never fire on its own",
+        "An executable script file was created under the skill's `scripts/` directory (not just described in prose)",
+        "The script has a shebang line on its first line",
+        "SKILL.md references the script by an absolute path built from `${CLAUDE_SKILL_DIR}`, not a bare relative path",
+        "An `allowed-tools` rule is present whose pattern actually matches the script invocation written in the body, so the script runs without a permission prompt",
+        "The skill does not silently perform the irreversible steps - tagging and any push are either gated on user confirmation or explicitly left to the user",
+        "Every frontmatter key is one of: name, description, when_to_use, argument-hint, arguments, context, agent, background, allowed-tools, disable-model-invocation, user-invocable, model, effort, paths, hooks, shell, disallowed-tools"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "create-knowledge-skill-no-fork",
+      "prompt": "our API error conventions all live in api-errors/errors.ts - the code ranges, which failures are retryable, which messages are safe to show users. i keep having to re-explain them to you mid-task. can you read that file and capture it as a skill so you just know it?",
+      "expected_output": "A model-invocable reference skill, not forked, accurately capturing the conventions from the source file and organized for lookup.",
+      "files": ["evals/fixtures/api-errors"],
+      "assertions": [
+        "A SKILL.md was created on disk with YAML frontmatter that parses",
+        "`context: fork` is NOT set - this is reference material consulted mid-task, and forking it would send the knowledge to an isolated subagent instead of the conversation that needs it",
+        "`disable-model-invocation: true` is NOT set, since the user wants Claude to apply the conventions without being asked",
+        "The description or when_to_use carries trigger phrasing tied to when the knowledge applies (error handling, API failures, retries), not just a label naming the skill",
+        "All five code ranges from errors.ts are captured with their correct boundaries: validation 1000-1999, auth 2000-2999, rate limit 3000-3099, upstream 4000-4999, internal 5000-5999",
+        "The skill captures the non-obvious rule that within the auth range only TOKEN_EXPIRED is user-facing, because the others would leak whether an account exists",
+        "The skill captures that retryability does not follow the range: UPSTREAM_TIMEOUT (4001) is retryable while UPSTREAM_REJECTED (4002) is not, and within internal only WRITE_NOT_COMMITTED (5001) is retryable",
+        "No error code, range boundary, or retryable/userFacing flag is stated that contradicts errors.ts",
+        "Every frontmatter key is one of: name, description, when_to_use, argument-hint, arguments, context, agent, background, allowed-tools, disable-model-invocation, user-invocable, model, effort, paths, hooks, shell, disallowed-tools"
+      ]
+    }
+  ]
+}

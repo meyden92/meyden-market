@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "meyden",
+  "description": "meyden marketplace for internal claude code plugins.",
+  "owner": {
+    "name": "meyden"
+  },
+  "plugins": [
+    {
+      "name": "agent-toolkit",
+      "displayName": "Agent Toolkit",
+      "source": "./plugins/agent-toolkit",
+      "description": "Writing and testing Claude Code Extensions such as Skills, Plugins, Agents and Mods.",
+      "keywords": [
+        "claude code",
+        "ai",
+        "mods"
+      ],
+      "tags": [
+        "claude code",
+        "development"
+      ],
+      "author": {
+        "name": "meyden92"
+      },
+      "license": "UNLICENSED",
+      "category": "claude-code-development"
+    },
+    {
+      "name": "remote-ssh",
+      "displayName": "Remote SSH",
+      "source": "./plugins/remote-ssh",
+      "description": "Remote work over SSH with a host pinned per Claude session: bounded logs, service restarts, deploys, and a guard hook against hanging or misdirected remote commands",
+      "keywords": [
+        "ssh",
+        "remote",
+        "deploy",
+        "logs"
+      ],
+      "category": "developer-experience",
+      "author": {
+        "name": "meyden92"
+      },
+      "license": "UNLICENSED"
+    },
+    {
+      "name": "github-flow",
+      "displayName": "GitHub Flow",
+      "source": "./plugins/github-flow",
+      "description": "GitHub issue, PR and CI workflow enforcement via gh: issue lifecycle labels, PR conventions, CI triage, and a guard hook against auto-closing PR text",
+      "keywords": [
+        "github",
+        "gh",
+        "issues",
+        "pull-requests",
+        "ci"
+      ],
+      "category": "developer-experience",
+      "author": {
+        "name": "meyden92"
+      },
+      "license": "UNLICENSED"
+    },
+    {
+      "name": "dev-workflow",
+      "source": "./plugins/dev-workflow",
+      "description": "Engineering workflow skills for senior engineers: an onboarding preflight, structured planning interviews, specs, tracer-bullet tickets, TDD implementation, and code review, wired to GitHub",
+      "keywords": [
+        "dev-workflow",
+        "onboarding",
+        "preflight",
+        "planning",
+        "spec",
+        "tickets",
+        "tdd",
+        "code-review",
+        "domain-modeling",
+        "github"
+      ]
+    },
+    {
+      "name": "usage-band",
+      "displayName": "Usage Band",
+      "source": "./plugins/usage-band",
+      "description": "Shows plan rate limits (5h, 7d), context fill, model and session age in a band above the prompt, plus a /usage-demo pane that tries out what mods can do",
+      "keywords": [
+        "usage",
+        "rate-limit",
+        "cost",
+        "mod"
+      ],
+      "tags": [
+        "claude code",
+        "mods"
+      ],
+      "author": {
+        "name": "meyden92"
+      },
+      "license": "UNLICENSED",
+      "category": "developer-experience"
+    },
+    {
+      "name": "video-engineer",
+      "source": "./plugins/video-engineer",
+      "description": "Turns screenshots and a sentence of direction into a finished Remotion video (interview, brief, script, images through the fal MCP, voice, music and sound effects through the fal or ElevenLabs MCP, build, critic-gated QA, incremental render, platform cuts), shows a running app in showcase and tutorial videos, and turns a song plus its lyrics into a lyric music video",
+      "keywords": [
+        "remotion",
+        "video",
+        "tts",
+        "voiceover",
+        "motion-graphics",
+        "captions",
+        "music-video",
+        "lyrics"
+      ],
+      "displayName": "Video Engineer",
+      "tags": [
+        "remotion",
+        "video",
+        "elevenlabs"
+      ],
+      "author": {
+        "name": "meyden92"
+      },
+      "license": "UNLICENSED",
+      "category": "media"
+    },
+    {
+      "name": "vinted-seller",
+      "source": "./plugins/vinted-seller",
+      "description": "Turns item photos into German Vinted listings, prices them against comparable listings on vinted.de, and fills the upload form in the browser for you to publish",
+      "keywords": [
+        "vinted",
+        "second-hand",
+        "listing",
+        "resale",
+        "pricing"
+      ],
+      "displayName": "Vinted Seller",
+      "tags": [
+        "vinted",
+        "selling"
+      ],
+      "author": {
+        "name": "meyden92"
+      },
+      "license": "UNLICENSED",
+      "category": "productivity"
+    },
+    {
+      "name": "threejs-knowledge",
+      "source": "./plugins/threejs-knowledge",
+      "description": "Current three.js knowledge (r186, WebGL and WebGPU with TSL, React Three Fiber, physics, XR, audio, world and asset generation), five specialist agents, a hook that flags outdated three.js API, live frame stats and a visual check loop, so Claude builds, debugs and optimizes 3D scenes without being told which skill to use",
+      "keywords": [
+        "threejs",
+        "three.js",
+        "webgl",
+        "webgpu",
+        "tsl",
+        "react-three-fiber",
+        "3d",
+        "shaders",
+        "rapier",
+        "webxr",
+        "mod"
+      ],
+      "displayName": "three.js Knowledge",
+      "tags": [
+        "threejs",
+        "3d",
+        "mods"
+      ],
+      "author": {
+        "name": "meyden92"
+      },
+      "license": "UNLICENSED",
+      "category": "development"
+    }
+  ]
+}

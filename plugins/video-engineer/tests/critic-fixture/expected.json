@@ -1,0 +1,7 @@
+{
+  "hardFailures": [
+    { "scene": "s02", "frame": "t6.00-s02.png", "rule": "text under meta.style.minTextPx", "evidence": "line at 24 px on the 1920 px canvas (12 px in the 50 % draft); minTextPx is 36" },
+    { "scene": "s03", "frame": "t10.00-s03.png", "rule": "two elements entering at once", "evidence": "the Plan and Build cards fade in together in the same frames and overlap" },
+    { "scene": "s04", "frame": "t15.00-s04.png", "rule": "empty beat over 1.5 s", "evidence": "t15.00, t16.00, t18.00 and t18.07 show only the background, 3.07 s" }
+  ]
+}

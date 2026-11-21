@@ -1,0 +1,125 @@
+{
+  "meta": {
+    "title": "Hello world",
+    "lang": "en-US",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "targetSec": [
+      22,
+      26
+    ],
+    "style": {
+      "sheet": "Flat vector, thick outlines, palette #0F172A #38BDF8 #F8FAFC, no text",
+      "palette": [
+        "#0F172A",
+        "#38BDF8",
+        "#F8FAFC"
+      ],
+      "font": "Inter",
+      "minTextPx": 36
+    },
+    "voice": {
+      "provider": "fal",
+      "model": "google/gemini-3.8-flash-tts",
+      "voice": "Charon",
+      "style": "calm and warm"
+    },
+    "sound": {
+      "musicPrompt": "quiet ambient pad",
+      "musicDuck": 0.15,
+      "sfxDensity": "none"
+    },
+    "cuts": [
+      "9:16",
+      "1:1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "s01",
+      "section": "intro",
+      "narration": "Welcome to the video engineer plugin. This short demo shows how a script turns into a finished video, scene by scene.",
+      "onScreen": "video-engineer",
+      "visualType": "title",
+      "motion": {
+        "entrance": "rise",
+        "camera": "kenburns-in",
+        "transitionIn": "fade"
+      },
+      "assets": [],
+      "audio": {
+        "file": "public/audio/s01.mp3",
+        "durationSec": 7.706
+      },
+      "sfx": [],
+      "captions": true,
+      "hash": "",
+      "qa": {
+        "score": null,
+        "issues": []
+      }
+    },
+    {
+      "id": "s02",
+      "section": "demo",
+      "narration": "Each scene is a manifest entry with narration, artwork and motion. Change one line of text and only that scene is rendered again.",
+      "onScreen": "",
+      "visualType": "illustration",
+      "motion": {
+        "entrance": "rise",
+        "camera": "kenburns-in",
+        "transitionIn": "fade"
+      },
+      "assets": [
+        {
+          "file": "public/img/s02-bg.png",
+          "layer": "background",
+          "prompt": "Dark blue gradient backdrop",
+          "status": "valid"
+        },
+        {
+          "file": "public/img/s02-subject.png",
+          "layer": "subject",
+          "prompt": "Cyan disc with a white ring and a bar below, transparent background",
+          "status": "valid"
+        }
+      ],
+      "audio": {
+        "file": "public/audio/s02.mp3",
+        "durationSec": 9.169
+      },
+      "sfx": [],
+      "captions": true,
+      "hash": "",
+      "qa": {
+        "score": null,
+        "issues": []
+      }
+    },
+    {
+      "id": "s03",
+      "section": "outro",
+      "narration": "That is the whole loop. Edit the script, run the render, and the new video is ready in minutes.",
+      "onScreen": "Edit. Render. Done.",
+      "visualType": "title",
+      "motion": {
+        "entrance": "rise",
+        "camera": "kenburns-in",
+        "transitionIn": "fade"
+      },
+      "assets": [],
+      "audio": {
+        "file": "public/audio/s03.mp3",
+        "durationSec": 6.165
+      },
+      "sfx": [],
+      "captions": true,
+      "hash": "",
+      "qa": {
+        "score": null,
+        "issues": []
+      }
+    }
+  ]
+}
