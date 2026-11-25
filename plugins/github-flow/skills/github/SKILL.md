@@ -62,7 +62,7 @@ The label *names* differ per project (`In Arbeit`, `Status: Doing`, `workflow::D
 
 **3. Never write `Closes` / `Fixes` / `Resolves #N` in a PR body or in a commit that lands on the default branch.** It reads as a cross-reference and acts as an action: the issue closes on merge, the acceptance test never happens, and nobody notices until someone opens the issue later. Write `Part of #N` instead, or `Bezug: #N` on a German-language project. Both `meyden-gh pr` and the guard hook refuse these keywords, the hook even on a raw `gh pr create`; if one slips through anyway, reopen the issue rather than treating it as done.
 
-**4. Closing is three steps in order:** post the solution comment, set the `done` label, then close. The comment is what makes the issue readable a year later: what changed, which files, how it was verified. Verify the comment actually landed before the close; when it silently fails, the issue ends up closed with no record. `gh issue close --comment` folds the first and third step into one call; the `done` label still comes first.
+**4. Closing is two steps in order:** set the `done` label, then close.
 
 **5. Every commit references its issue** as `#NNN`. If no issue exists, create one first: "commit without an issue" is not an option to offer. In code comments, `#NNN` is only ever a supplement to a self-explanatory comment, never a bare number standing alone. Mind rule 3: a closing keyword in front of the `#NNN` turns the reference into an auto-close.
 

@@ -33,7 +33,7 @@ Environment worth setting when scripting: `GH_PROMPT_DISABLED=1` (fail fast inst
 | `create` | `-t` title, `-b` body / `-F` body-file, `-a` assignee, `-l` label, `-m` milestone, `--type <name>` (org issue types), `--parent <n\|url>` (create directly as a sub-issue), `--blocked-by <n,n>` / `--blocking <n>`. **Prompts when `-t`/`-b` missing.** No `--json`; prints the URL. |
 | `edit <n...>` | `-t`, `-b`/`-F`, `--add-label`/`--remove-label` (comma-separated, add+remove in **one atomic call**), `--add-assignee`/`--remove-assignee` (`@me`), `--milestone`, `--parent <n>` / `--remove-parent`, `--add-sub-issue <n,n>` / `--remove-sub-issue`, `--add-blocked-by <n>` / `--remove-blocked-by`, `--add-blocking` / `--remove-blocking`, `--type`. Accepts several issue numbers at once. No `--json`; read back with `view`. |
 | `comment <n>` | `-b`/`-F` (body-file exists here, unlike glab), `--edit-last`, `--create-if-none`, `--delete-last`. **Prompts when the body is missing.** |
-| `close <n>` | `-c/--comment "..."` posts the solution comment in the same call, `-r/--reason completed\|"not planned"\|duplicate`. |
+| `close <n>` | `-c/--comment "..."` posts a comment in the same call, `-r/--reason completed\|"not planned"\|duplicate`. |
 | `reopen` / `delete <n>` | `delete` is irreversible and asks for confirmation; type mismatch (`--yes`) skips it, so confirm with the user instead. |
 | `develop <n>` | Creates a branch linked to the issue: `--name epic/42-slug`, `--base develop`, `--checkout`. The link renders on the issue. |
 | `pin` / `unpin` / `transfer` / `lock` | Housekeeping; `transfer` moves an issue to another repo. |

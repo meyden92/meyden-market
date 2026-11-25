@@ -34,13 +34,9 @@ This is the single most effective way to break rule 2, and it doesn't look like 
 
 **If it already happened:** reopen the issue and get the acceptance done. Treating it as finished because GitHub said so hands the user a decision they never got to make.
 
-## 4. Closing is three ordered steps
+## 4. Closing is two ordered steps
 
-**Rule:** solution comment → `done` label → close.
-
-The comment is what makes the issue useful later: what changed, which files, how it was verified. An issue closed without one is a dead end for whoever finds it in six months.
-
-The order matters because the comment is historically the step that fails silently: on GitLab a wrong flag made it vanish while label and close succeeded, leaving a closed issue with no record. `gh issue close --comment "..." --reason completed` removes most of that risk by folding comment and close into one call that fails together; set the `done` label first, then close with the comment. When posting the comment separately (`meyden-gh issue comment`), verify it landed before closing.
+**Rule:** `done` label → close.
 
 Rule 1's label step also matters at close specifically: a `closed` issue still carrying `Testing` keeps showing in the Testing column and reads as outstanding work.
 
